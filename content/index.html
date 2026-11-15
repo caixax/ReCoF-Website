@@ -1,0 +1,65 @@
+---
+title: ReCoF
+head: ReCoF: Cry of Fear, rebuilt
+layout: home
+---
+<section class="hero">
+<span class="eyebrow">Cry of Fear 1.6a, rebuilt from its source</span>
+<h1>Re<span>CoF</span></h1>
+<p class="tagline">The original Cry of Fear with its bugs fixed, running faster, and with co-op servers you can host yourself. A launcher installs it next to your Steam copy, which it never touches.</p>
+<div class="actions">
+<a class="btn primary" href="/docs/install/">Install guide</a>
+<a class="btn" href="https://github.com/caixax/ReCoF-Launcher/releases/latest" rel="noopener">Download the launcher</a>
+<a class="btn" href="/docs/">Read the docs</a>
+</div>
+<div class="badges">
+<a href="https://github.com/caixax/ReCoF/releases/latest" rel="noopener"><img src="https://img.shields.io/github/v/release/caixax/ReCoF?label=stable" alt="Latest stable release" height="20"></a>
+<a href="https://github.com/caixax/ReCoF/releases" rel="noopener"><img src="https://img.shields.io/github/v/release/caixax/ReCoF?include_prereleases&amp;label=beta&amp;color=orange" alt="Latest beta" height="20"></a>
+<a href="https://github.com/caixax/ReCoF/releases" rel="noopener"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fcaixax%2FReCoF%2Fbadges%2Fdownloads.json" alt="Downloads" height="20"></a>
+<a href="https://github.com/caixax/ReCoF-Launcher/releases/latest" rel="noopener"><img src="https://img.shields.io/github/v/release/caixax/ReCoF-Launcher?label=launcher&amp;color=blueviolet" alt="Latest launcher" height="20"></a>
+</div>
+</section>
+
+<section class="section">
+<h2>Play in three steps</h2>
+<p class="sub">You need Cry of Fear on Steam (it is free) and Windows 10 or 11.</p>
+<div class="steps">
+<div class="step"><h3>Get the launcher</h3><p>Download the ReCoF Launcher from its releases page: an installer, or one portable file.</p></div>
+<div class="step"><h3>Let it make a copy</h3><p>It finds your Cry of Fear, copies it to a folder you choose and installs ReCoF on the copy, checking every file it downloads.</p></div>
+<div class="step"><h3>Press Play</h3><p>It keeps ReCoF up to date and backs up your saves before every update. Your Steam game stays exactly as it was.</p></div>
+</div>
+</section>
+
+<section class="section">
+<h2>What ReCoF is</h2>
+<p class="sub">ReCoF starts from <a href="https://github.com/caixax/DeCoF" rel="noopener">DeCoF</a>, a complete decompilation of every Cry of Fear binary, rebuilt into source code that compiles back to the original game. ReCoF fixes and improves that source and stays the same game: same maps, same story, same speedrun tricks.</p>
+<div class="cards">
+<a class="card" href="/docs/"><h3>Bugs fixed</h3><p>Crashes, save problems, AI and collision bugs and leaks of the original game, each one written down with how it was found and how it was fixed. The original balance is one option away.</p><span class="more">What changes</span></a>
+<a class="card" href="/docs/options/#performance"><h3>Faster</h3><p>The renderer draws the same picture with far less work: models on the graphics card, batched world and effects, lights with a shader. In the 0.2.3 beta, the heaviest maps run at 95 to 100 fps on an old i3 laptop that managed 65 to 80.</p><span class="more">Performance options</span></a>
+<a class="card" href="/docs/speedrun/"><h3>Made with runners in mind</h3><p>Every technique runners use is kept. An in-game timer, a LiveSplit autosplitter and practice commands come with it.</p><span class="more">Speedrunning</span></a>
+<a class="card" href="/docs/server/"><h3>Co-op servers</h3><p>A dedicated server for Windows or a Linux VPS, with Metamod-R and AMX Mod X for plugins, and a server list in the game.</p><span class="more">Host a server</span></a>
+<a class="card" href="/docs/install/"><h3>A launcher that cares</h3><p>Signed and checked downloads, save backups, rollbacks, repair, a beta channel for testers. Nothing is ever written into your Steam folder.</p><span class="more">Install guide</span></a>
+<a class="card" href="/docs/credits/"><h3>Open source</h3><p>Everything is on GitHub: the game, the launcher, the server and its plugins. ReCoF's own code is under the MIT License.</p><span class="more">Credits and license</span></a>
+</div>
+</section>
+
+<section class="section">
+<h2>Host a co-op server</h2>
+<p class="sub">The ReCoF Server package runs the Cry of Fear co-op campaigns on Windows or on a Linux VPS, with your own copy of the game files.</p>
+<div class="split">
+<ul>
+<li><strong>Windows or Linux.</strong> One package for each, with start scripts that check the game files before they start.</li>
+<li><strong>Plugins.</strong> Metamod-R and AMX Mod X built for Cry of Fear, with <code>cof.inc</code> for its weapons, items and monsters.</li>
+<li><strong>Waits for players.</strong> With nobody in the game the map waits, so its music, cameras and scripts start for the first player.</li>
+<li><strong>ReCoF players only.</strong> The server turns away the original game, unless you let everyone in.</li>
+</ul>
+<pre><code>$ ./start_server.sh
+...
+connect 203.0.113.10:27015</code></pre>
+</div>
+</section>
+
+<section class="cta">
+<h2>Ready to play?</h2>
+<p>Read the <a href="/docs/install/">install guide</a>, or get the <a href="https://github.com/caixax/ReCoF-Launcher/releases/latest" rel="noopener">ReCoF Launcher</a> and follow its steps.</p>
+</section>

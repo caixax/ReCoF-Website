@@ -1,0 +1,24 @@
+# Cloudflare Tunnel ingress for recof.dev.
+# Copy the relevant part into /etc/cloudflared/config.yml (or merge it with an existing tunnel's config).
+# The tunnel talks to nginx on loopback only (deploy/nginx.recof.conf); nothing listens on a public port.
+#
+# Both hostnames point at the same nginx, which decides by Host: recof.dev is served, www.recof.dev is
+# redirected to it. So no httpHostHeader here: overriding the Host would make nginx see one name for both
+# and the redirect would never fire.
+#
+# Create the DNS records once with: cloudflared tunnel route dns <tunnel> recof.dev (and www.recof.dev)
+
+tunnel: REPLACE_WITH_TUNNEL_ID
+credentials-file: /etc/cloudflared/REPLACE_WITH_TUNNEL_ID.json
+
+ingress:
+  - hostname: recof.dev
+    service: http://127.0.0.1:5780
+    originRequest:
+      connectTimeout: 10s
+  - hostname: www.recof.dev
+    service: http://127.0.0.1:5780
+    originRequest:
+      connectTimeout: 10s
+  # Catch all: must be last
+  - service: http_status:404
