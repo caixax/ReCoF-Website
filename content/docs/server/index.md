@@ -7,7 +7,7 @@ description: ReCoF Server runs Cry of Fear co-op on Windows or a Linux VPS, with
 [ReCoF Server](https://github.com/caixax/ReCoF-Server) is a dedicated server for Cry of Fear co-op, for players on ReCoF. It runs on a Windows PC or on a Linux VPS, without a window and without the game running, and takes plugins through Metamod-R and AMX Mod X.
 
 > [!IMPORTANT]
-> The server is being tested. It starts on Windows and Linux and runs every co-op map with Metamod-R and AMX Mod X and their plugins; games with players joining are still being tested. Downloads are on the [ReCoF Server releases page](https://github.com/caixax/ReCoF-Server/releases).
+> The server is being tested. It starts on Windows and Linux and runs every co-op map with Metamod-R and AMX Mod X and their plugins; games with players joining are still being tested. The first release is not out yet; when it is, the downloads will be on the [ReCoF Server releases page](https://github.com/caixax/ReCoF-Server/releases).
 
 ## Why a server of its own
 

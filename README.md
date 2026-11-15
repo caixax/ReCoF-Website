@@ -53,21 +53,31 @@ When ReCoF's options change, refresh the list with `pnpm sync-cvars` (from a ReC
 
 ## Hosting
 
-The site runs on a Linux VPS: nginx serves `dist/` on `127.0.0.1:5780` only, and `cloudflared` carries it to recof.dev, so no port is open to the Internet.
+The site runs on a Linux VPS: nginx serves `dist/` on `127.0.0.1:5780` only, and a Cloudflare Tunnel carries it to recof.dev, so no port is open to the Internet.
 
 First time, on the VPS (Debian or Ubuntu):
 
 ```sh
 sudo apt install nginx rsync git
 # Node 20 or newer, then pnpm: corepack enable
-git clone <this repository> ~/recof-website
+git clone https://github.com/caixax/ReCoF-Website.git ~/recof-website
 cd ~/recof-website
 ./scripts/update.sh
 ```
 
 `update.sh` pulls, installs, builds, publishes `dist/` to `/var/www/recof` and installs `deploy/nginx.recof.conf` as `/etc/nginx/sites-enabled/recof` when it changed (and only if `nginx -t` passes). Run it again after every change pushed to the repository.
 
-Then the tunnel: create one with `cloudflared tunnel create recof`, route both names to it (`cloudflared tunnel route dns recof recof.dev` and `www.recof.dev`), and merge `deploy/cloudflared.example.yml` into `/etc/cloudflared/config.yml` with the tunnel's id. `www.recof.dev` redirects to `recof.dev`.
+Then the tunnel, with [mcf](https://github.com/caixax/mcf) (`<user>` is the mcf user of the Cloudflare account that holds recof.dev):
+
+```sh
+mcf create tunnel recof --user <user>
+mcf route recof recof.dev
+mcf route recof www.recof.dev
+mcf start recof http://127.0.0.1:5780
+mcf enable recof
+```
+
+Both names go to the same nginx, which serves `recof.dev` and redirects `www.recof.dev` to it. For a plain `cloudflared` setup instead, `deploy/cloudflared.example.yml` has the same ingress.
 
 ## License
 
