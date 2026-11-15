@@ -287,8 +287,9 @@ function checkLinks() {
 export async function build() {
   const cfg = await import(pathToFileURL(join(ROOT, 'site.config.mjs')).href + `?t=${Date.now()}`);
   const started = Date.now();
-  rmSync(DIST, { recursive: true, force: true });
+  // empty dist/ rather than delete it: on Windows a folder that the preview server or a shell is in cannot be removed
   mkdirSync(DIST, { recursive: true });
+  for (const name of readdirSync(DIST)) rmSync(join(DIST, name), { recursive: true, force: true });
 
   const pages = new Map();
   for (const file of walk(CONTENT)) {
