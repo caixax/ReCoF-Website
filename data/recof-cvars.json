@@ -442,6 +442,14 @@
       "group": "Other",
       "label_en": "Same pitch on every shot",
       "desc_en": "Plays your weapon sounds at their recorded pitch. The original game changes the pitch a little at every shot, which makes replacement gun sounds (for example the ones of Cry of Fear 1.5) sound wrong."
+    },
+    {
+      "name": "rc_vignette",
+      "type": "bool",
+      "default": "0",
+      "group": "Other",
+      "label_en": "Vignette",
+      "desc_en": "Darkens the corners of the screen, as Cry of Fear 1.0 to 1.55 did, scaled to your resolution. The Vignette option of the original game (cl_vignette) never did anything."
     }
   ]
 }
