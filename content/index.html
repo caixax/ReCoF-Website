@@ -4,62 +4,244 @@ head: ReCoF: Cry of Fear, rebuilt
 layout: home
 ---
 <section class="hero">
-<span class="eyebrow">Cry of Fear 1.6a, rebuilt from its source</span>
-<h1>Re<span>CoF</span></h1>
-<p class="tagline">The original Cry of Fear with its bugs fixed, running faster, and with co-op servers you can host yourself. A launcher installs it next to your Steam copy, which it never touches.</p>
+<div class="hero-fx" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+<p class="eyebrow">Cry of Fear 1.6a, rebuilt from its own source code</p>
+<h1 class="logo"><img src="/img/logo.png" alt="ReCoF: Cry of Fear, recompiled" width="1138" height="161"></h1>
+<p class="tagline">The original Cry of Fear with hundreds of its bugs fixed, a renderer that does far less work, smoother pictures on fast monitors and Simon's story in co-op straight through Steam. Same maps, same story, every speedrun trick kept, and your Steam copy is never touched.</p>
 <div class="actions">
-<a class="btn primary" href="/docs/install/">Install guide</a>
-<a class="btn" href="https://github.com/caixax/ReCoF-Launcher/releases/latest" rel="noopener">Download the launcher</a>
-<a class="btn" href="/docs/">Read the docs</a>
+<a class="btn primary" href="https://github.com/caixax/ReCoF-Launcher/releases/latest" rel="noopener">Download the launcher</a>
+<a class="btn" href="/docs/install/">Install guide</a>
+<a class="btn ghost" href="#features">What it changes</a>
 </div>
 <div class="badges">
-<a href="https://github.com/caixax/ReCoF/releases/latest" rel="noopener"><img src="https://img.shields.io/github/v/release/caixax/ReCoF?label=stable" alt="Latest stable release" height="20"></a>
-<a href="https://github.com/caixax/ReCoF/releases" rel="noopener"><img src="https://img.shields.io/github/v/release/caixax/ReCoF?include_prereleases&amp;label=beta&amp;color=orange" alt="Latest beta" height="20"></a>
+<a href="https://github.com/caixax/ReCoF/releases/latest" rel="noopener"><img src="https://img.shields.io/github/v/release/caixax/ReCoF?label=stable&amp;color=2b2b2f" alt="Latest stable release" height="20"></a>
+<a href="https://github.com/caixax/ReCoF/releases" rel="noopener"><img src="https://img.shields.io/github/v/release/caixax/ReCoF?include_prereleases&amp;label=beta&amp;color=8b1a1f" alt="Latest beta" height="20"></a>
 <a href="https://github.com/caixax/ReCoF/releases" rel="noopener"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fcaixax%2FReCoF%2Fbadges%2Fdownloads.json" alt="Downloads" height="20"></a>
-<a href="https://github.com/caixax/ReCoF-Launcher/releases/latest" rel="noopener"><img src="https://img.shields.io/github/v/release/caixax/ReCoF-Launcher?label=launcher&amp;color=blueviolet" alt="Latest launcher" height="20"></a>
+<a href="https://github.com/caixax/ReCoF-Launcher/releases/latest" rel="noopener"><img src="https://img.shields.io/github/v/release/caixax/ReCoF-Launcher?label=launcher&amp;color=2b2b2f" alt="Latest launcher" height="20"></a>
 </div>
 </section>
 
-<section class="section">
+<section class="stats" aria-label="ReCoF in numbers">
+<div class="stat"><strong>270+</strong><span>fixes and improvements to the original game, each one written down with how it was found</span></div>
+<div class="stat"><strong>95 to 100</strong><span>fps on the heaviest maps of an old i3 laptop, up from 65 to 80, with the 0.2.3 beta's batched drawing</span></div>
+<div class="stat"><strong>2 to 4</strong><span>players in Simon's story, joined through Steam with no VPN and no open ports</span></div>
+<div class="stat"><strong>0</strong><span>game files included: ReCoF runs on your own free copy from Steam</span></div>
+</section>
+
+<div id="features" class="features-intro">
+<p class="kicker">What ReCoF changes</p>
+<h2>The game you know, without what held it back</h2>
+<p class="sub">Everything below is in the stable release unless it carries the <span class="pill beta">0.2.3 beta</span> tag: those are on the launcher's Beta channel. Anything that changes how the game plays can be switched back to the original.</p>
+</div>
+
+<section class="feature" id="fixes">
+<div class="feature-text">
+<p class="kicker">Fixes</p>
+<h2>Bugs fixed where they start</h2>
+<p>Cry of Fear crashes, freezes and misbehaves in ways its players learned to live with. With the game's code in hand, ReCoF fixes each problem in the code that causes it, not with a patch on top, and writes down how it was found and how it was tested.</p>
+<ul class="ticks-list">
+<li><strong>Crashes and freezes:</strong> out of memory crashes at door transitions and after long sessions, the water effect above 1920 x 1080, an 18 second freeze after the intro videos.</li>
+<li><strong>AI and collision:</strong> monsters no longer step through thin walls and closed doors, nor turn faster or slower with the frame rate.</li>
+<li><strong>Saves and story:</strong> the final wheelchair scene no longer softlocks, and save problems of the original are fixed. Saves from the original game still load.</li>
+<li><strong>A crash leaves a report</strong> instead of freezing the game on its last picture.</li>
+</ul>
+<p class="note">The balance fixes go back to the original with one option, <code>rc_retail_gameplay 1</code>.</p>
+<a class="more" href="https://github.com/caixax/ReCoF/blob/multicore/docs/bugs.md" rel="noopener">Read the public bug list</a>
+</div>
+<div class="feature-visual">
+<div class="buglist panel">
+<div class="panel-head"><span>docs/bugs.md</span><span>fixed</span></div>
+<div role="list" aria-label="Some of the fixes">
+<div class="bug" role="listitem"><span class="id">B277</span><span class="tag crash">crash</span><span class="what">Out of memory at door transitions: the game can now use 4 GB, not 2</span></div>
+<div class="bug" role="listitem"><span class="id">B182</span><span class="tag crash">crash</span><span class="what">Freeze or crash above 1920 x 1080 from the water effect</span></div>
+<div class="bug" role="listitem"><span class="id">B118</span><span class="tag ai">AI</span><span class="what">Monsters stepping through thin walls and closed doors</span></div>
+<div class="bug" role="listitem"><span class="id">B123</span><span class="tag story">story</span><span class="what">The final wheelchair scene softlocking on a use press</span></div>
+<div class="bug" role="listitem"><span class="id">B301</span><span class="tag perf">freeze</span><span class="what">An 18 second freeze after the intro videos</span></div>
+<div class="bug" role="listitem"><span class="id">B199</span><span class="tag perf">perf</span><span class="what">The night vision mask cutting the frame rate</span></div>
+<div class="bug" role="listitem"><span class="id">B296</span><span class="tag perf">perf</span><span class="what">Laptops starting the game on the slow graphics chip</span></div>
+<div class="bug" role="listitem"><span class="id">B184</span><span class="tag input">input</span><span class="what">Mouse acceleration forced on, and no raw input</span></div>
+<div class="bug" role="listitem"><span class="id">B302</span><span class="tag visual">visual</span><span class="what">Player sprays that never showed</span></div>
+<div class="bug" role="listitem"><span class="id">B309</span><span class="tag visual">visual</span><span class="what">End of game statistics that sometimes did not show</span></div>
+<div class="bug more-row" role="listitem"><span class="id">...</span><span class="what">and more than 260 others</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="feature flip" id="performance">
+<div class="feature-text">
+<p class="kicker">Performance</p>
+<h2>The same picture with far less work</h2>
+<p>The Paranoia renderer behind Cry of Fear did most of its work on the processor, one vertex and one surface at a time. ReCoF moves that work to the graphics card and does it in bulk, so the picture stays the same and the frame rate goes up, most of all on weaker PCs.</p>
+<ul class="ticks-list">
+<li><strong>Models on the graphics card:</strong> skinned and lit by the GPU instead of one vertex at a time on the CPU.</li>
+<li><strong>Lights with a shader,</strong> and one dynamic light anywhere on the map no longer makes the visible world draw twice.</li>
+<li><strong>Batched drawing:</strong> the world grouped by texture, rain, snow and grass in batches, hidden faces skipped. <span class="pill beta">0.2.3 beta</span></li>
+<li><strong>Several cores:</strong> the bones of every model set up in parallel. <span class="pill beta">0.2.3 beta</span></li>
+<li><strong>Fewer stutters:</strong> picking up an item or starting a music track no longer stalls the game. <span class="pill beta">0.2.3 beta</span></li>
+<li><strong>Laptops with two graphics chips</strong> start the game on the fast one.</li>
+</ul>
+<p class="note">Every performance option can be turned off, and a performance log helps find what still stutters on your PC.</p>
+<a class="more" href="/docs/options/#performance">Performance options</a>
+</div>
+<div class="feature-visual">
+<figure class="fps-card panel">
+<figcaption>Average fps on the heaviest maps, old i3 laptop</figcaption>
+<table>
+<thead><tr><th scope="col">Map</th><th scope="col">Off</th><th scope="col">On</th></tr></thead>
+<tbody>
+<tr><td>c_cof_lake</td><td class="off">65.7</td><td class="on">96.6</td></tr>
+<tr><td>c_subway2st1</td><td class="off">74.2</td><td class="on">99.5</td></tr>
+<tr><td>c_stad</td><td class="off">75.6</td><td class="on">98.7</td></tr>
+<tr><td>c_park3</td><td class="off">81.4</td><td class="on">95.3</td></tr>
+</tbody>
+</table>
+<p class="fps-foot">i3-7020U with Radeon R7 M440 graphics, the same walk through each map with the 0.2.3 beta's batched drawing off and on, at the game's normal 100 fps limit.</p>
+</figure>
+</div>
+</section>
+
+<section class="feature" id="smooth-frames">
+<div class="feature-text">
+<p class="kicker">Smooth frames</p>
+<h2>Frame extrapolation for fast monitors</h2>
+<p>Cry of Fear's logic runs 100 times a second and drew one picture each time, so on a 144 or 240 Hz monitor the view moved in 10 ms steps. Smooth frames draws extra pictures between those ticks, extrapolated from the last one: the mouse turns the view at once, and the camera and your weapon move ahead by your speed, stopped by walls and floors.</p>
+<ul class="ticks-list">
+<li><strong>The game itself does not change:</strong> logic, physics and the timing of your inputs stay at their 100 ticks, so nothing a speedrun relies on moves.</li>
+<li><strong>As fast as your monitor,</strong> or a rate you set, with the pictures spaced evenly so they do not stutter.</li>
+<li><strong>Scenes, menus and the inventory</strong> keep one picture per tick, as in the original.</li>
+</ul>
+<p class="note">Experimental and off by default: turn on <strong>Smooth frames</strong> in the launcher's options or type <code>rc_smoothframes 1</code>. With it on, <code>cl_showfps</code> shows both, as in <code>300 fps (100 logic)</code>.</p>
+</div>
+<div class="feature-visual">
+<div class="tickviz panel" aria-hidden="true">
+<p class="tv-label">Original: one picture per game tick, 100 a second (50 ms shown)</p>
+<div class="tv-track"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+<p class="tv-label">Smooth frames: two extrapolated pictures between the ticks</p>
+<div class="tv-track dense"><i class="t"></i><i></i><i></i><i class="t"></i><i></i><i></i><i class="t"></i><i></i><i></i><i class="t"></i><i></i><i></i><i class="t"></i><i></i><i></i><i class="t"></i></div>
+<p class="tv-key"><span class="k-tick"></span>game tick <span class="k-extra"></span>extrapolated picture</p>
+</div>
+</div>
+</section>
+
+<section class="feature flip" id="coop">
+<div class="feature-text">
+<p class="kicker">Story co-op <span class="pill beta">0.2.3 beta</span></p>
+<h2>Simon's story with friends, straight through Steam</h2>
+<p>Play the whole campaign with 2 to 4 players. No Radmin VPN, no Hamachi, no port forwarding: host from the Story co-op lobby, invite your friends through Steam, and they join over Steam's network without anyone's IP address being shown.</p>
+<ul class="ticks-list">
+<li><strong>A lobby before the game:</strong> pick the campaign, the difficulty and the co-op rules, then send Steam invites.</li>
+<li><strong>Proximity voice chat:</strong> a teammate sounds from where he stands, near or far.</li>
+<li><strong>Saves for the whole group,</strong> and every new level waits until everyone has loaded, so nobody misses a scene.</li>
+<li><strong>The story reaches everyone:</strong> scenes, phone calls, keys, teleports and the ending, written for one player, work for the group.</li>
+<li><strong>Everyone plays as Simon,</strong> and a respawn gives back your weapons, your clips and your quick slots.</li>
+</ul>
+<p class="note">Still in testing: everyone in a game needs the same ReCoF beta.</p>
+<a class="more" href="https://github.com/caixax/ReCoF/releases" rel="noopener">Get the beta</a>
+</div>
+<div class="feature-visual">
+<div class="netviz panel">
+<div class="node host"><b>You</b><span>host the lobby</span></div>
+<div class="link"><span>Steam invite</span></div>
+<div class="node steam"><b>Steam</b><span>its relay network</span></div>
+<div class="link"><span>joins</span></div>
+<div class="node friends"><b>Friends</b><span>up to 3 more</span></div>
+<ul class="chips">
+<li>No port forwarding</li>
+<li>No Radmin or Hamachi</li>
+<li>No IP addresses shown</li>
+</ul>
+</div>
+</div>
+</section>
+
+<section class="section grid-section" id="speedrun">
+<p class="kicker">Speedrunning</p>
+<h2>Made with runners in mind</h2>
+<p class="sub">Every technique runners use is kept, and anything that would change a route has a switch. Then ReCoF adds the tools runners used to need other programs for.</p>
+<div class="tiles">
+<div class="tile"><h3>In-game run timer</h3><p>Follows the timing rules of the community's LiveSplit script.</p></div>
+<div class="tile"><h3>LiveSplit autosplitter</h3><p>The game's timer drives LiveSplit, with the community's split rules and every category. <a href="https://github.com/caixax/ReCoF-Autosplitter" rel="noopener">ReCoF Autosplitter</a></p></div>
+<div class="tile"><h3>Practice commands</h3><p>In the style of BunnymodXT: set your position, health, velocity and view, see through walls, hold a level change.</p></div>
+<div class="tile"><h3>Speedometer and info panel</h3><p>Speed and takeoff speed, health and stamina as numbers, a panel as runners know it.</p></div>
+<div class="tile"><h3>Movement options</h3><p>Half-Life movement, ducktap and autojump aids, and a switch for the bunny hop cap. The aids are off by default.</p></div>
+<div class="tile"><h3>Routes stay valid</h3><p>Skips and movement tech are kept, and a fix that touches a route can be switched back.</p></div>
+</div>
+<a class="more" href="/docs/speedrun/">Speedrunning with ReCoF</a>
+</section>
+
+<section class="section grid-section" id="quality-of-life">
+<p class="kicker">Quality of life</p>
+<h2>The small things, done properly</h2>
+<p class="sub">Options the original game never had, all off or set as in the original where they would change how it plays.</p>
+<div class="tiles small">
+<div class="tile"><h3>Borderless window</h3><p>More video modes, and video changes applied without restarting the game.</p></div>
+<div class="tile"><h3>Raw mouse input</h3><p>No more forced mouse acceleration; works next to RInput.</p></div>
+<div class="tile"><h3>Vertical sync</h3><p>On or off, which the original could not do.</p></div>
+<div class="tile"><h3>Custom crosshair</h3><p>Color, size, gap, thickness, outline, dot and circle.</p></div>
+<div class="tile"><h3>Weapon view</h3><p>The weapon's field of view and its position on screen.</p></div>
+<div class="tile"><h3>Discord status</h3><p>Shown from inside the game.</p></div>
+<div class="tile"><h3>Crash reports</h3><p>A crash or a hang writes a report instead of freezing.</p></div>
+<div class="tile"><h3>Sprays that show</h3><p>Player sprays are painted again, at the size you pick.</p></div>
+<div class="tile"><h3>Skip the intros</h3><p>The intro videos and the door fades, if you want.</p></div>
+<div class="tile"><h3>A new options window <span class="pill beta">beta</span></h3><p>Every setting in one place, each one explained.</p></div>
+<div class="tile"><h3>Menus for any screen <span class="pill beta">beta</span></h3><p>A modern look that scales from 720p to 4K.</p></div>
+<div class="tile"><h3>A server list <span class="pill beta">beta</span></h3><p>ReCoF servers on the Internet and your network.</p></div>
+</div>
+<a class="more" href="/docs/options/">Every option</a>
+</section>
+
+<section class="section" id="install">
+<p class="kicker">Install</p>
 <h2>Play in three steps</h2>
 <p class="sub">You need Cry of Fear on Steam (it is free) and Windows 10 or 11.</p>
 <div class="steps">
-<div class="step"><h3>Get the launcher</h3><p>Download the ReCoF Launcher from its releases page: an installer, or one portable file.</p></div>
-<div class="step"><h3>Let it make a copy</h3><p>It finds your Cry of Fear, copies it to a folder you choose and installs ReCoF on the copy, checking every file it downloads.</p></div>
-<div class="step"><h3>Press Play</h3><p>It keeps ReCoF up to date and backs up your saves before every update. Your Steam game stays exactly as it was.</p></div>
+<div class="step"><h3>Get the launcher</h3><p>Download the ReCoF Launcher: an installer, or one portable file.</p></div>
+<div class="step"><h3>Let it make a copy</h3><p>It finds your Cry of Fear, copies it to a folder you choose and installs ReCoF on the copy, checking every file it downloads against a signed list.</p></div>
+<div class="step"><h3>Press Play</h3><p>It keeps ReCoF up to date, backs up your saves before every update and can roll back. Your Steam game stays exactly as it was.</p></div>
 </div>
+<p class="sub after">On Windows 11 with Smart App Control on, turn it off first: ReCoF's files are not signed yet. The <a href="/docs/install/">install guide</a> shows how.</p>
 </section>
 
-<section class="section">
-<h2>What ReCoF is</h2>
-<p class="sub">ReCoF starts from <a href="https://github.com/caixax/DeCoF" rel="noopener">DeCoF</a>, a complete decompilation of every Cry of Fear binary, rebuilt into source code that compiles back to the original game. ReCoF fixes and improves that source and stays the same game: same maps, same story, same speedrun tricks.</p>
-<div class="cards">
-<a class="card" href="/docs/"><h3>Bugs fixed</h3><p>Crashes, save problems, AI and collision bugs and leaks of the original game, each one written down with how it was found and how it was fixed. The original balance is one option away.</p><span class="more">What changes</span></a>
-<a class="card" href="/docs/options/#performance"><h3>Faster</h3><p>The renderer draws the same picture with far less work: models on the graphics card, batched world and effects, lights with a shader. In the 0.2.3 beta, the heaviest maps run at 95 to 100 fps on an old i3 laptop that managed 65 to 80.</p><span class="more">Performance options</span></a>
-<a class="card" href="/docs/speedrun/"><h3>Made with runners in mind</h3><p>Every technique runners use is kept. An in-game timer, a LiveSplit autosplitter and practice commands come with it.</p><span class="more">Speedrunning</span></a>
-<a class="card" href="/docs/server/"><h3>Co-op servers</h3><p>A dedicated server for Windows or a Linux VPS, with Metamod-R and AMX Mod X for plugins, and a server list in the game.</p><span class="more">Host a server</span></a>
-<a class="card" href="/docs/install/"><h3>A launcher that cares</h3><p>Signed and checked downloads, save backups, rollbacks, repair, a beta channel for testers. Nothing is ever written into your Steam folder.</p><span class="more">Install guide</span></a>
-<a class="card" href="/docs/credits/"><h3>Open source</h3><p>Everything is on GitHub: the game, the launcher, the server and its plugins. ReCoF's own code is under the MIT License.</p><span class="more">Credits and license</span></a>
-</div>
-</section>
-
-<section class="section">
-<h2>Host a co-op server</h2>
-<p class="sub">The ReCoF Server package runs the Cry of Fear co-op campaigns on Windows or on a Linux VPS, with your own copy of the game files.</p>
+<section class="section" id="servers">
 <div class="split">
-<ul>
-<li><strong>Windows or Linux.</strong> One package for each, with start scripts that check the game files before they start.</li>
-<li><strong>Plugins.</strong> Metamod-R and AMX Mod X built for Cry of Fear, with <code>cof.inc</code> for its weapons, items and monsters.</li>
-<li><strong>Waits for players.</strong> With nobody in the game the map waits, so its music, cameras and scripts start for the first player.</li>
-<li><strong>ReCoF players only.</strong> The server turns away the original game, unless you let everyone in.</li>
+<div>
+<p class="kicker">Servers</p>
+<h2>Host a co-op server</h2>
+<p class="sub">ReCoF Server is a dedicated server for Cry of Fear co-op on Windows or a Linux VPS, built on ReHLDS. It is being tested; its first release is coming.</p>
+<a class="more" href="/docs/server/">Hosting a server</a>
+</div>
+<ul class="ticks-list">
+<li><strong>Windows or Linux,</strong> without a window and without the game running.</li>
+<li><strong>Plugins</strong> through Metamod-R and AMX Mod X, built for Cry of Fear.</li>
+<li><strong>Waits for players:</strong> the map's music, cameras and scripts start for the first one in.</li>
+<li><strong>ReCoF players only,</strong> unless you let everyone in.</li>
 </ul>
-<pre><code>$ ./start_server.sh
-...
-connect 203.0.113.10:27015</code></pre>
+</div>
+</section>
+
+<section class="section" id="source">
+<div class="origin">
+<div>
+<p class="kicker">How it is made</p>
+<h2>Rebuilt from the source</h2>
+<p>ReCoF starts from <a href="https://github.com/caixax/DeCoF" rel="noopener">DeCoF</a>, a complete decompilation of every Cry of Fear binary (the game code, the engine, the renderer, the menus and both launchers) turned back into source code that compiles to the original game. ReCoF fixes and improves that source. Everything is open source on GitHub: the game, the launcher, the server and its plugins, with ReCoF's own code under the MIT License.</p>
+<p class="links-row"><a class="more" href="https://github.com/caixax/ReCoF" rel="noopener">ReCoF on GitHub</a><a class="more" href="/docs/credits/">Credits and license</a></p>
+</div>
+<ol class="chain" aria-label="From the game to ReCoF">
+<li><b>Cry of Fear 1.6a</b><span>the Steam release</span></li>
+<li><b>DeCoF</b><span>its source, matching the original</span></li>
+<li><b>ReCoF</b><span>fixed, faster, with co-op</span></li>
+</ol>
 </div>
 </section>
 
 <section class="cta">
+<img src="/img/icon.png" alt="" width="56" height="56">
 <h2>Ready to play?</h2>
-<p>Read the <a href="/docs/install/">install guide</a>, or get the <a href="https://github.com/caixax/ReCoF-Launcher/releases/latest" rel="noopener">ReCoF Launcher</a> and follow its steps.</p>
+<p>Get the <a href="https://github.com/caixax/ReCoF-Launcher/releases/latest" rel="noopener">ReCoF Launcher</a> and follow its steps, or read the <a href="/docs/install/">install guide</a>.</p>
+<div class="actions">
+<a class="btn primary" href="https://github.com/caixax/ReCoF-Launcher/releases/latest" rel="noopener">Download the launcher</a>
+<a class="btn" href="/docs/">Read the docs</a>
+</div>
 </section>
