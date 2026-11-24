@@ -23,7 +23,7 @@ layout: home
 
 <section class="stats" aria-label="ReCoF in numbers">
 <div class="stat"><strong>270+</strong><span>fixes and improvements to the original game, each one written down with how it was found</span></div>
-<div class="stat"><strong>95 to 100</strong><span>fps on the heaviest maps of an old i3 laptop, up from 65 to 80, with the 0.2.3 beta's batched drawing</span></div>
+<div class="stat"><strong>95 to 100</strong><span>fps on the heaviest maps of an old i3 laptop, up from 65 to 80, with ReCoF's batched drawing</span></div>
 <div class="stat"><strong>2 to 4</strong><span>players in Simon's story, joined through Steam with no VPN and no open ports</span></div>
 <div class="stat"><strong>0</strong><span>game files included: ReCoF runs on your own free copy from Steam</span></div>
 </section>
@@ -31,7 +31,7 @@ layout: home
 <div id="features" class="features-intro">
 <p class="kicker">What ReCoF changes</p>
 <h2>The game you know, without what held it back</h2>
-<p class="sub">Everything below is in the stable release unless it carries the <span class="pill beta">0.2.3 beta</span> tag: those are on the launcher's Beta channel. Anything that changes how the game plays can be switched back to the original.</p>
+<p class="sub">Everything below is in the current release. Anything that changes how the game plays can be switched back to the original.</p>
 </div>
 
 <section class="feature" id="fixes">
@@ -76,9 +76,9 @@ layout: home
 <ul class="ticks-list">
 <li><strong>Models on the graphics card:</strong> skinned and lit by the GPU instead of one vertex at a time on the CPU.</li>
 <li><strong>Lights with a shader,</strong> and one dynamic light anywhere on the map no longer makes the visible world draw twice.</li>
-<li><strong>Batched drawing:</strong> the world grouped by texture, rain, snow and grass in batches, hidden faces skipped. <span class="pill beta">0.2.3 beta</span></li>
-<li><strong>Several cores:</strong> the bones of every model set up in parallel. <span class="pill beta">0.2.3 beta</span></li>
-<li><strong>Fewer stutters:</strong> picking up an item or starting a music track no longer stalls the game. <span class="pill beta">0.2.3 beta</span></li>
+<li><strong>Batched drawing:</strong> the world grouped by texture, rain, snow and grass in batches, hidden faces skipped.</li>
+<li><strong>Several cores:</strong> the bones of every model set up in parallel.</li>
+<li><strong>Fewer stutters:</strong> picking up an item or starting a music track no longer stalls the game.</li>
 <li><strong>Laptops with two graphics chips</strong> start the game on the fast one.</li>
 </ul>
 <p class="note">Every performance option can be turned off, and a performance log helps find what still stutters on your PC.</p>
@@ -96,7 +96,7 @@ layout: home
 <tr><td>c_park3</td><td class="off">81.4</td><td class="on">95.3</td></tr>
 </tbody>
 </table>
-<p class="fps-foot">i3-7020U with Radeon R7 M440 graphics, the same walk through each map with the 0.2.3 beta's batched drawing off and on, at the game's normal 100 fps limit.</p>
+<p class="fps-foot">i3-7020U with Radeon R7 M440 graphics, the same walk through each map with ReCoF's batched drawing off and on, at the game's normal 100 fps limit.</p>
 </figure>
 </div>
 </section>
@@ -126,9 +126,9 @@ layout: home
 
 <section class="feature flip" id="coop">
 <div class="feature-text">
-<p class="kicker">Story co-op <span class="pill beta">0.2.3 beta</span></p>
+<p class="kicker">Story co-op</p>
 <h2>Simon's story with friends, straight through Steam</h2>
-<p>Play the whole campaign with 2 to 4 players. No Radmin VPN, no Hamachi, no port forwarding: host from the Story co-op lobby, invite your friends through Steam, and they join over Steam's network without anyone's IP address being shown.</p>
+<p>Play the whole campaign with 2 to 4 players. No Radmin VPN, no Hamachi, no port forwarding: host from the Co-op lobby, invite your friends through Steam, and they join over Steam's network without anyone's IP address being shown.</p>
 <ul class="ticks-list">
 <li><strong>A lobby before the game:</strong> pick the campaign, the difficulty and the co-op rules, then send Steam invites.</li>
 <li><strong>Proximity voice chat:</strong> a teammate sounds from where he stands, near or far.</li>
@@ -136,8 +136,8 @@ layout: home
 <li><strong>The story reaches everyone:</strong> scenes, phone calls, keys, teleports and the ending, written for one player, work for the group.</li>
 <li><strong>Everyone plays as Simon,</strong> and a respawn gives back your weapons, your clips and your quick slots.</li>
 </ul>
-<p class="note">Still in testing: everyone in a game needs the same ReCoF beta.</p>
-<a class="more" href="https://github.com/caixax/ReCoF/releases" rel="noopener">Get the beta</a>
+<p class="note">Everyone in a game needs the same ReCoF version.</p>
+<a class="more" href="https://github.com/caixax/ReCoF/blob/main/docs/coop.md" rel="noopener">Read the co-op guide</a>
 </div>
 <div class="feature-visual">
 <div class="netviz panel">
@@ -184,9 +184,9 @@ layout: home
 <div class="tile"><h3>Crash reports</h3><p>A crash or a hang writes a report instead of freezing.</p></div>
 <div class="tile"><h3>Sprays that show</h3><p>Player sprays are painted again, at the size you pick.</p></div>
 <div class="tile"><h3>Skip the intros</h3><p>The intro videos and the door fades, if you want.</p></div>
-<div class="tile"><h3>A new options window <span class="pill beta">beta</span></h3><p>Every setting in one place, each one explained.</p></div>
-<div class="tile"><h3>Menus for any screen <span class="pill beta">beta</span></h3><p>A modern look that scales from 720p to 4K.</p></div>
-<div class="tile"><h3>A server list <span class="pill beta">beta</span></h3><p>ReCoF servers on the Internet and your network.</p></div>
+<div class="tile"><h3>A new options window</h3><p>Every setting in one place, each one explained.</p></div>
+<div class="tile"><h3>Menus for any screen</h3><p>A modern look that scales from 720p to 4K.</p></div>
+<div class="tile"><h3>A server list</h3><p>ReCoF servers on the Internet and your network.</p></div>
 </div>
 <a class="more" href="/docs/options/">Every option</a>
 </section>
