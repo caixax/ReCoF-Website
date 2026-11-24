@@ -9,6 +9,7 @@ export const site = {
     'with story co-op through Steam and a launcher that installs and updates it.',
   github: 'https://github.com/caixax/ReCoF',
   launcher: 'https://github.com/caixax/ReCoF-Launcher/releases/latest',
+  discord: 'https://discord.gg/m63drEUJ4v',
 };
 
 // The links at the top of every page. An external link opens the page it names.
@@ -17,6 +18,7 @@ export const header = [
   { href: '/docs/server/', label: 'Servers' },
   { href: site.launcher, label: 'Download', external: true },
   { href: site.github, label: 'GitHub', external: true },
+  { href: site.discord, label: 'Discord', external: true },
 ];
 
 // The documentation's sidebar, in reading order. Previous and next links follow it too.

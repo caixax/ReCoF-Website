@@ -1,5 +1,7 @@
 # ReCoF Website
 
+[![Discord](https://img.shields.io/badge/Discord-join%20the%20server-5865F2?logo=discord&logoColor=white)](https://discord.gg/m63drEUJ4v)
+
 The website of [ReCoF](https://github.com/caixax/ReCoF), served at **recof.dev**: a home page and the documentation (installing, updating, options, co-op, speedrunning, and hosting a server with Metamod-R and AMX Mod X).
 
 It is a static site. The pages are Markdown files in `content/`, a small Node script builds them into plain HTML in `dist/`, and nginx serves that folder behind a Cloudflare Tunnel. No database, no backend, no framework; the only dependency is [marked](https://github.com/markedjs/marked).

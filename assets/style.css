@@ -1484,6 +1484,10 @@ footer.site .foot-links a + span {
   header.top .brand {
     font-size: 0;
   }
+  header.top .links {
+    gap: 0.7rem;
+    font-size: 0.85rem;
+  }
   header.top .brand img {
     width: 24px;
     height: 24px;

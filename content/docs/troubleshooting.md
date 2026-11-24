@@ -62,7 +62,7 @@ ReCoF catches crashes itself: the game closes with a message, and a report and a
 
 ## Reporting a problem
 
-Open an issue on [GitHub](https://github.com/caixax/ReCoF/issues), or use **Report a problem** in the launcher, which fills the versions and your system details in for you. Say:
+Open an issue on [GitHub](https://github.com/caixax/ReCoF/issues), or use **Report a problem** in the launcher, which fills the versions and your system details in for you. For a quick question, or to talk it through first, join the [ReCoF Discord](https://discord.gg/m63drEUJ4v). Say:
 
 - the ReCoF version (shown in the corner of the main menu);
 - the map (type `status` in the console if you are not sure) and what you were doing;

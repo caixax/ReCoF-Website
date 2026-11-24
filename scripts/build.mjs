@@ -199,7 +199,7 @@ ${main}
 <a href="https://gamebanana.com/mods/742625" rel="noopener" title="ReCoF on GameBanana"><img src="https://gamebanana.com/mods/embeddables/742625?type=large" alt="ReCoF on GameBanana" width="350" height="75" loading="lazy"></a>
 <a href="https://www.moddb.com/mods/recof-cry-of-fear-rebuilt" title="View ReCoF: Cry of Fear Rebuilt on ModDB" target="_blank" rel="noopener"><img src="https://button.moddb.com/popularity/medium/mods/74493.png" alt="ReCoF: Cry of Fear Rebuilt" width="260" height="50" loading="lazy"></a>
 </div>
-<p class="foot-links"><a href="${esc(site.launcher)}" rel="noopener">Download</a><a href="/docs/">Docs</a><a href="${esc(site.github)}" rel="noopener">GitHub</a><a href="https://github.com/caixax/ReCoF/blob/multicore/docs/bugs.md" rel="noopener">Bug list</a><a href="/docs/credits/">Credits and license</a><span class="muted">${year}</span></p>
+<p class="foot-links"><a href="${esc(site.launcher)}" rel="noopener">Download</a><a href="/docs/">Docs</a><a href="${esc(site.github)}" rel="noopener">GitHub</a><a href="${esc(site.discord)}" rel="noopener">Discord</a><a href="https://github.com/caixax/ReCoF/blob/main/docs/bugs.md" rel="noopener">Bug list</a><a href="/docs/credits/">Credits and license</a><span class="muted">${year}</span></p>
 <p>ReCoF is a fan project by caixax, free and open source. It is not affiliated with or endorsed by Team Psykskallar, who made <a href="https://store.steampowered.com/app/223710/" rel="noopener">Cry of Fear</a>, or by Valve. No game files are distributed: ReCoF needs your own copy of the game, free on Steam.</p>
 </footer>
 </body>
