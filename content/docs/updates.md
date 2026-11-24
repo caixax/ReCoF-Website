@@ -5,7 +5,7 @@ description: How ReCoF keeps itself up to date, how to roll back, and how to tes
 
 ## Automatic updates
 
-The launcher checks GitHub for a new ReCoF release when it starts and every few minutes while it is open. When one is out, the home screen shows **Update to** with the version, next to **Play without updating** if you would rather play first.
+The launcher checks GitHub for a new ReCoF release when it starts and every few minutes while it's open. When one is out, the home screen shows **Update to** with the version, next to **Play without updating** if you'd rather play first.
 
 Before every update the launcher:
 
@@ -24,13 +24,13 @@ The launcher updates itself the same way, from its own releases.
 | **Stable** | The releases that have been tested in game. The default. |
 | **Beta** | The stable releases and the test builds in between, with the newest fixes and features. Expect problems and keep your backups. |
 
-To switch, open **Tools**, **Updates** in the launcher and set the **Release channel**. Back on Stable, the launcher offers the stable releases again from the next stable version on.
+To switch, open **Tools**, **Updates** in the launcher and set the **Release channel**. Once you're back on Stable, the launcher offers stable releases again from the next stable version on.
 
-Beta builds are listed on the [releases page](https://github.com/caixax/ReCoF/releases) as pre-releases, with what changed in each. If you find a problem in one, [report it](/docs/troubleshooting/#reporting-a-problem): that is what betas are for.
+Beta builds are listed on the [releases page](https://github.com/caixax/ReCoF/releases) as pre-releases, with what changed in each. If you find a problem in one, [report it](/docs/troubleshooting/#reporting-a-problem). That's what betas are for.
 
 ## Installing a release from a file
 
-In the launcher, **Maintenance**, **Install from a file** takes a release you downloaded yourself: put the three launcher files of the release (`recof-<version>.zip`, `recof-manifest.json` and `recof-manifest.json.sig`) in one folder and choose it. The same checks apply.
+In the launcher, **Maintenance**, **Install from a file** takes a release you downloaded yourself. Put the three launcher files of the release (`recof-<version>.zip`, `recof-manifest.json` and `recof-manifest.json.sig`) in one folder and choose it. The same checks apply.
 
 ## Your saves
 

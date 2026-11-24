@@ -10,12 +10,12 @@ description: The start script, server.cfg and the settings ReCoF adds for server
 
 | Setting | Default | What it is |
 |---|---|---|
-| `MAP` | `cof_campaign_01` | the map the server starts on: `cof_campaign_01` for the co-op campaign, `cof_manhunt_campaign` for Manhunt |
-| `PLAYERS` | `4` | the most players at once; Cry of Fear co-op takes up to 4 |
+| `MAP` | `cof_campaign_01` | the map the server starts on, `cof_campaign_01` for the co-op campaign or `cof_manhunt_campaign` for Manhunt |
+| `PLAYERS` | `4` | the most players at once (Cry of Fear co-op takes up to 4) |
 | `PORT` | `27015` | the UDP port players connect to |
 | `IP` | empty | the address to use, only on a machine with more than one network adapter where the server picks the wrong one |
 
-On Linux they can also be given when you start it, without editing the script:
+On Linux you can also set them when you start it, without editing the script:
 
 ```
 MAP=cof_manhunt_campaign PORT=27016 ./start_server.sh
@@ -25,7 +25,7 @@ Anything after the script's name goes to the server as well, for example `./star
 
 ## server.cfg
 
-`cryoffear/server.cfg` runs when the server starts and again at every map. The package's file, with what each line does:
+`cryoffear/server.cfg` runs when the server starts and again at every map. Here's the package's file, with what each line does:
 
 ```
 hostname "ReCoF co-op server"
@@ -62,8 +62,8 @@ With `sv_password` set, players type `password <the password>` in their console 
 | Setting | Default | What it does |
 |---|---|---|
 | `rc_require_recof` | `1` | Only players on ReCoF 0.2.3 or later can join. The others get a message with a link to ReCoF. `0` lets everyone in. |
-| `sv_pause_empty` | `1` | With nobody in the game, the map waits: its music, cameras and scripts start when the first player arrives. |
-| `sv_restart_empty` | `1` | When the last player leaves, the map loads again, so the next group finds it from the start. |
+| `sv_pause_empty` | `1` | With nobody in the game the map waits, so its music, cameras and scripts start when the first player arrives. |
+| `sv_restart_empty` | `1` | When the last player leaves, the map loads again, so the next group gets it from the beginning. |
 | `rc_retail_gameplay` | `0` | `1` plays with the original game's balance instead of ReCoF's fixes. |
 
 ## Commands in the server console

@@ -5,8 +5,8 @@ export const site = {
   name: 'ReCoF',
   url: 'https://recof.dev',
   description:
-    'ReCoF is Cry of Fear rebuilt from its source: the original game with its bugs fixed, faster, ' +
-    'with story co-op through Steam and a launcher that installs and updates it.',
+    "ReCoF is Cry of Fear rebuilt from its source code. It's the original game with its bugs fixed, better " +
+    'performance, story co-op over Steam, and a launcher that installs and updates it.',
   github: 'https://github.com/caixax/ReCoF',
   launcher: 'https://github.com/caixax/ReCoF-Launcher/releases/latest',
   discord: 'https://discord.gg/m63drEUJ4v',

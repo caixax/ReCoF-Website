@@ -2,9 +2,11 @@
 //
 // Every page in content/ becomes dist/<path>/index.html: a Markdown page (.md) goes through marked, an HTML page
 // (.html) is used as it is, and both are put in the page shell below. The options page gets its tables from
-// data/recof-cvars.json, the list ReCoF ships for its launcher. The stylesheet and the script get a hash of their
-// content in their URL, so a browser or Cloudflare never keeps an old one. Then a sitemap, and a check that every
-// link inside the site points at a page, a file or a heading that exists: a broken link fails the build.
+// data/recof-cvars.json, the list ReCoF ships for its launcher, with the intros the page writes for some groups.
+// HTML comments are left out of the pages, and a screenshot slot (<figure class="shot">) only shows when its file
+// is in public/. The stylesheet and the script get a hash of their content in their URL, so a browser or Cloudflare
+// never keeps an old one. Then a sitemap, and a check that every link inside the site points at a page, a file or a
+// heading that exists: a broken link fails the build.
 //
 //   node scripts/build.mjs        (pnpm build)
 
@@ -72,18 +74,35 @@ function parseSource(file) {
   return { meta, body };
 }
 
+// A group's intro for the options reference, shown under the group's heading: in the page, the lines between
+// <!-- intro: Performance --> and <!-- /intro -->. They are taken out of the page's text.
+function groupIntros(body, file) {
+  const intros = new Map();
+  body = body.replace(/^<!-- intro: (.+?) -->\n([\s\S]*?)\n<!-- \/intro -->\n+/gm, (_, group, text) => {
+    intros.set(group.trim(), text.trim());
+    return '';
+  });
+  if (intros.size && !body.includes('{{cvars}}')) throw new Error(`${relative(ROOT, file)}: group intros without {{cvars}}`);
+  return { body, intros };
+}
+
 // The options reference: one section per group of data/recof-cvars.json, in the order the list has them.
-function cvarsMarkdown() {
+function cvarsMarkdown(intros = new Map()) {
   const data = JSON.parse(readFileSync(join(ROOT, 'data', 'recof-cvars.json'), 'utf8'));
   const groups = new Map();
   for (const c of data.cvars) {
     if (!groups.has(c.group)) groups.set(c.group, []);
     groups.get(c.group).push(c);
   }
+  for (const group of intros.keys()) {
+    if (!groups.has(group)) throw new Error(`content/docs/options.md: an intro for "${group}", a group data/recof-cvars.json does not have`);
+  }
   const cell = (s) => String(s).replace(/\|/g, '\\|').replace(/\n/g, ' ');
   let md = '';
   for (const [group, list] of groups) {
-    md += `## ${group}\n\n| Option | Default | What it does |\n|---|---|---|\n`;
+    md += `## ${group}\n\n`;
+    if (intros.has(group)) md += `${intros.get(group)}\n\n`;
+    md += '| Option | Default | What it does |\n|---|---|---|\n';
     for (const c of list) {
       const name = c.type === 'flag' ? `-${c.name}` : c.name;
       let def;
@@ -132,6 +151,42 @@ function renderMarkdown(body) {
   html = html.replace(/<p>\s*<\/p>/g, '');
   html = html.replace(/<table>/g, '<div class="table-wrap"><table>').replace(/<\/table>/g, '</table></div>');
   return { html, headings: state.headings };
+}
+
+// Screenshots and clips: each <figure class="shot"> names its file under public/. A figure whose file is missing
+// is left out, unless the same name is there in another format (an image as .webp, .avif, .jpg, .jpeg or .png, a
+// clip as .mp4 or .webm), which is used instead; a <section class="shots"> with no figure left is left out too. A
+// screenshot that is there needs its alt text and a clip its caption, or the build stops; an empty caption is
+// dropped, and so is a clip's poster when its image is missing.
+const IMAGE_EXT = ['.webp', '.avif', '.jpg', '.jpeg', '.png'];
+const VIDEO_EXT = ['.mp4', '.webm'];
+
+function publicFile(src, exts) {
+  const at = (p) => join(ROOT, 'public', ...p.split('/').filter(Boolean));
+  if (existsSync(at(src))) return src;
+  const base = src.replace(/\.[a-z0-9]+$/i, '');
+  return exts.map((ext) => base + ext).find((p) => existsSync(at(p))) || null;
+}
+
+function optionalShots(html, where) {
+  html = html.replace(/<figure class="shot\b[^"]*">[\s\S]*?<\/figure>\n?/g, (fig) => {
+    const video = /<video\b/.test(fig);
+    const src = /<(?:img|video)\b[^>]*\ssrc="([^"]+)"/.exec(fig);
+    const found = src && publicFile(src[1], video ? VIDEO_EXT : IMAGE_EXT);
+    if (!found) return '';
+    fig = fig.split(`"${src[1]}"`).join(`"${found}"`);
+    const poster = /\sposter="([^"]+)"/.exec(fig);
+    if (poster) {
+      const image = publicFile(poster[1], IMAGE_EXT);
+      fig = image ? fig.replace(poster[0], ` poster="${image}"`) : fig.replace(poster[0], '');
+    }
+    const caption = /<figcaption>([\s\S]*?)<\/figcaption>/.exec(fig);
+    const hasCaption = caption && caption[1].trim() !== '';
+    if (!video && /<img\b[^>]*\salt=""/.test(fig)) throw new Error(`${where}: public${found} needs its alt text`);
+    if (video && !hasCaption) throw new Error(`${where}: public${found} needs a caption`);
+    return caption && !hasCaption ? fig.replace(caption[0], '') : fig;
+  });
+  return html.replace(/<section class="shots\b[^"]*"[^>]*>\s*<\/section>\n?/g, '');
 }
 
 function assetVersion() {
@@ -200,7 +255,7 @@ ${main}
 <a href="https://www.moddb.com/mods/recof-cry-of-fear-rebuilt" title="View ReCoF: Cry of Fear Rebuilt on ModDB" target="_blank" rel="noopener"><img src="https://button.moddb.com/popularity/medium/mods/74493.png" alt="ReCoF: Cry of Fear Rebuilt" width="260" height="50" loading="lazy"></a>
 </div>
 <p class="foot-links"><a href="${esc(site.launcher)}" rel="noopener">Download</a><a href="/docs/">Docs</a><a href="${esc(site.github)}" rel="noopener">GitHub</a><a href="${esc(site.discord)}" rel="noopener">Discord</a><a href="https://github.com/caixax/ReCoF/blob/main/docs/bugs.md" rel="noopener">Bug list</a><a href="/docs/credits/">Credits and license</a><span class="muted">${year}</span></p>
-<p>ReCoF is a fan project by caixax, free and open source. It is not affiliated with or endorsed by Team Psykskallar, who made <a href="https://store.steampowered.com/app/223710/" rel="noopener">Cry of Fear</a>, or by Valve. No game files are distributed: ReCoF needs your own copy of the game, free on Steam.</p>
+<p>ReCoF is a free, open source fan project by caixax. It isn't affiliated with or endorsed by Team Psykskallar, who made <a href="https://store.steampowered.com/app/223710/" rel="noopener">Cry of Fear</a>, or by Valve. No game files are distributed, so you'll need your own copy of the game, which is free on Steam.</p>
 </footer>
 </body>
 </html>
@@ -311,8 +366,10 @@ export async function build() {
     let html = body;
     let headings = [];
     if (file.endsWith('.md')) {
-      ({ html, headings } = renderMarkdown(body.replace('{{cvars}}', () => cvarsMarkdown())));
+      const { body: text, intros } = groupIntros(body, file);
+      ({ html, headings } = renderMarkdown(text.replace('{{cvars}}', () => cvarsMarkdown(intros))));
     }
+    html = optionalShots(html.replace(/<!--[\s\S]*?-->\n?/g, ''), relative(ROOT, file));
     const layout = meta.layout || (id.startsWith('docs/') ? 'doc' : 'page');
     pages.set(id, { id, url: urlOf(id), meta, html, headings, layout });
   }

@@ -3,10 +3,10 @@ title: Install by hand
 description: Every release also comes as one zip that mirrors the game folder, for installing without the launcher.
 ---
 
-The launcher does all of this for you and checks every file. Installing by hand works too, if you prefer it.
+The launcher does all of this for you and checks every file. Installing by hand works too, if you'd rather do it yourself.
 
 > [!IMPORTANT]
-> Install ReCoF in a **copy** of the game, never in your Steam folder. Steam would put the original files back on its next update or file check, and you would lose the way back to the original game.
+> Install ReCoF in a **copy** of the game, never in your Steam folder. Steam would put the original files back on its next update or file check, and you'd lose your way back to the original game.
 
 ## Steps
 
@@ -24,7 +24,7 @@ The main menu shows the ReCoF version in its corner, for example `ReCoF-v0.2.2`.
 | `cof.exe` | the engine launcher |
 | `CoFLaunchApp.exe` | the settings window that opens before the game |
 | `hw.dll`, `sw.dll` | the GoldSrc engine (`sw.dll` is the same file, as in the original game) |
-| `opengl32.dll` | the OpenGL wrapper of the renderer |
+| `opengl32.dll` | the renderer's OpenGL wrapper |
 | `cryoffear/cl_dlls/hl.dll` | the game logic |
 | `cryoffear/cl_dlls/client.dll` | the client and its renderer |
 | `cryoffear/cl_dlls/GameUI.dll` | the menus |
@@ -32,7 +32,7 @@ The main menu shows the ReCoF version in its corner, for example `ReCoF-v0.2.2`.
 | `recof-cvars.json` | the list of ReCoF options, for the launcher |
 | `README-ReCoF-TEST.txt` | notes, the new options and the SHA-256 of every file |
 
-No game assets are in the zip: the maps, models and sounds come from your own copy.
+There are no game assets in the zip. The maps, models and sounds come from your own copy.
 
 ## Updating by hand
 
@@ -40,4 +40,4 @@ Download the newer zip and extract it into the same copy again, replacing the fi
 
 ## Going back
 
-Delete the copy. Your Steam installation was never changed, so the original game is still there. If you replaced files in the Steam folder by mistake, Steam can restore them: right-click Cry of Fear, **Properties**, **Installed Files**, **Verify integrity of game files**.
+Delete the copy. Your Steam installation was never changed, so the original game is still there. If you replaced files in the Steam folder by mistake, Steam can restore them. Right-click Cry of Fear, then **Properties**, **Installed Files**, **Verify integrity of game files**.

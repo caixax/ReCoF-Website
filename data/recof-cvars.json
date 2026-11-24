@@ -23,7 +23,7 @@
       "default": "0",
       "group": "Gameplay",
       "label_en": "Skip the door fades",
-      "desc_en": "The doors that take you to the other side move you at once, without the fade to black and back. For fun: runs with it are not comparable to retail runs."
+      "desc_en": "Doors that take you to the other side move you instantly, without the fade to black and back. It's just for fun, since runs with it aren't comparable to retail runs."
     },
     {
       "name": "rc_hlmovement",
@@ -31,7 +31,7 @@
       "default": "0",
       "group": "Movement",
       "label_en": "Half-Life 1 movement",
-      "desc_en": "Half-Life 1 physics as in the WON version: run speed 320, no sprint, dodge or stamina cost for jumps, no movement camera punches or fall over, and the ladders are climbed as Half-Life ladders. Also turns the bunny hop cap off and ducktap and autojump on. A separate speedrun category."
+      "desc_en": "Half-Life 1 physics as in the WON version: run speed 320, no sprint, dodge or stamina cost for jumps, no movement camera punches or fall over, and ladders climb like Half-Life ladders. It also turns the bunny hop cap off and ducktap and autojump on. A separate speedrun category."
     },
     {
       "name": "rc_bhopcap",
@@ -103,7 +103,7 @@
       "default": "1",
       "group": "HUD",
       "label_en": "Readable end statistics",
-      "desc_en": "The statistics and grade at the end of the game get a dark backdrop, and a click before they are fully shown is ignored. Off is retail, where an early click skipped them or left them half shown. The console command rc_print_score prints them once the game has ended."
+      "desc_en": "The statistics and grade at the end of the game get a dark backdrop, and a click before they're fully shown is ignored. Off is retail, where an early click skipped them or left them half shown. The console command rc_print_score prints them once the game has ended."
     },
     {
       "name": "rc_info",
@@ -153,7 +153,7 @@
       "default": "1",
       "group": "Performance",
       "label_en": "Faster world drawing",
-      "desc_en": "Sends runs of world polygons that share the same state to the driver in one call instead of one call per polygon. The picture is the same; off is the retail path, for comparison."
+      "desc_en": "Sends runs of world polygons that share the same state to the driver in one call, instead of one call per polygon."
     },
     {
       "name": "rc_lightshader",
@@ -161,7 +161,7 @@
       "default": "1",
       "group": "Performance",
       "label_en": "Faster dynamic lights",
-      "desc_en": "Draws the flashlight and the other dynamic lights on the world with a shader, so each light needs far fewer draw calls. The picture is the same; off is the retail light pass, for comparison."
+      "desc_en": "Draws the flashlight and the other dynamic lights on the world with a shader, so each light needs far fewer draw calls. Off uses the original light pass."
     },
     {
       "name": "rc_gpumodels",
@@ -169,7 +169,7 @@
       "default": "1",
       "group": "Performance",
       "label_en": "Models on the GPU",
-      "desc_en": "Moves and lights the models in a shader on the graphics card instead of on the processor every frame. The picture is the same; off is the processor path, for comparison."
+      "desc_en": "Skins and lights the models in a shader on the GPU, instead of on the CPU every frame."
     },
     {
       "name": "rc_modelarrays",
@@ -177,7 +177,7 @@
       "default": "1",
       "group": "Performance",
       "label_en": "Faster model drawing",
-      "desc_en": "Sends each model mesh to the driver in one call. The picture is the same; off is the retail path, for comparison."
+      "desc_en": "Sends each model mesh to the driver in a single call."
     },
     {
       "name": "rc_vsync",
@@ -185,7 +185,7 @@
       "default": "0",
       "group": "Performance",
       "label_en": "Vertical sync",
-      "desc_en": "Waits for the monitor's refresh before showing a frame. Off, the default, shows each frame at once, with the least input lag; on stops tearing. A vsync forced in the graphics driver's control panel still wins. Options, Video sets it too."
+      "desc_en": "Waits for the monitor's refresh before showing a frame. Off (the default) shows each frame right away, with the least input lag, and on stops tearing. Vsync forced in the graphics driver's control panel still wins. You can also set it in Options, Video."
     },
     {
       "name": "rc_smoothframes",
@@ -193,7 +193,7 @@
       "default": "0",
       "group": "Performance",
       "label_en": "Smooth frames (experimental)",
-      "desc_en": "Experimental. On monitors faster than 100 Hz, draws extra pictures between the game's 100 frames a second, with the view turned by the mouse and moved ahead by your speed, so turning and moving look smooth. The game itself still runs 100 frames a second. With cl_showfps 1 the counter shows both, for example 300 fps (100 logic)."
+      "desc_en": "On monitors faster than 100 Hz, draws extra frames between the game's 100 ticks a second. The mouse turns the view and your speed moves it ahead, so turning and moving look smooth. The game itself still runs at 100 ticks a second. With cl_showfps 1 the counter shows both, for example 300 fps (100 logic)."
     },
     {
       "name": "rc_smoothframes_fps",
@@ -203,7 +203,7 @@
       "max": 1000,
       "group": "Performance",
       "label_en": "Smooth frames rate",
-      "desc_en": "The rate smooth frames aim for, in pictures a second. 0, or anything up to the game's 100, follows the monitor's refresh rate. It does not turn smooth frames on or off: Smooth frames does."
+      "desc_en": "The frame rate smooth frames aims for. 0, or anything up to the game's 100, follows your monitor's refresh rate. This doesn't turn smooth frames on or off. The Smooth frames option does that."
     },
     {
       "name": "rc_dlightcull",
@@ -211,7 +211,7 @@
       "default": "1",
       "group": "Performance",
       "label_en": "Skip lights off screen",
-      "desc_en": "A dynamic light that cannot reach anything on screen is not drawn and no longer makes the world draw twice. The picture is the same; off is the retail behaviour, for comparison."
+      "desc_en": "A dynamic light that can't reach anything on screen isn't drawn, and no longer makes the world draw twice."
     },
     {
       "name": "rc_bmodelcull",
@@ -219,7 +219,7 @@
       "default": "1",
       "group": "Performance",
       "label_en": "Skip hidden entity faces",
-      "desc_en": "The faces of doors, walls and other brush entities that are outside the view are not drawn; before, an entity was drawn whole as soon as any part of it could be seen. The picture is the same; off is the retail behaviour, for comparison."
+      "desc_en": "Faces of doors, walls and other brush entities outside the view aren't drawn. The original drew an entity whole as soon as any part of it could be seen."
     },
     {
       "name": "rc_worldsort",
@@ -227,7 +227,7 @@
       "default": "1",
       "group": "Performance",
       "label_en": "World grouped by texture",
-      "desc_en": "Draws the world's faces grouped by texture and lightmap, so the graphics driver gets far fewer separate draws. Helps most on slow computers and AMD graphics. The picture is the same; off is the retail order, for comparison."
+      "desc_en": "Draws the world's faces grouped by texture and lightmap, so the graphics driver gets far fewer separate draws. It helps most on slow PCs and AMD graphics."
     },
     {
       "name": "rc_fxbatch",
@@ -235,7 +235,7 @@
       "default": "1",
       "group": "Performance",
       "label_en": "Faster rain and grass",
-      "desc_en": "Sends rain, snow and grass to the graphics driver in one block for each kind instead of one per drop. The picture is the same; off is the retail path, for comparison."
+      "desc_en": "Sends rain, snow and grass to the graphics driver in one block per kind, instead of one per drop."
     },
     {
       "name": "rc_threads",
@@ -245,7 +245,7 @@
       "max": 7,
       "group": "Performance",
       "label_en": "Bone threads",
-      "desc_en": "Sets up the bones of the models on other processor cores. -1 picks the number of threads from your processor: none below 8 threads, where it would slow the graphics driver down. 0 is off. The picture is the same either way."
+      "desc_en": "Sets up the models' bones on other CPU cores. -1 picks the number of threads from your CPU, and uses none below 8 threads, where they'd slow the graphics driver down. 0 is off."
     },
     {
       "name": "rc_perflog",
@@ -253,7 +253,7 @@
       "default": "0",
       "group": "Performance",
       "label_en": "Performance log",
-      "desc_en": "Writes a log of the frame rate and of every stutter, with what your computer is, to cryoffear/perflogs. Turn it on, play the part that runs badly, quit, and send the newest file to the ReCoF developers. It does not change the game."
+      "desc_en": "Writes a log of the frame rate and every stutter, along with your PC's specs, to cryoffear/perflogs. Turn it on, play the part that runs badly, quit, and send the newest file to the ReCoF developers. It doesn't change the game."
     },
     {
       "name": "rc_prof",
@@ -273,7 +273,7 @@
       "max": 512,
       "group": "Spray",
       "label_en": "Spray size",
-      "desc_en": "The longer side of your spray on the wall, in units. 0 keeps a unit a picture pixel, as in Half-Life. The picture is picked in Options, Spray."
+      "desc_en": "The longer side of your spray on the wall, in units. 0 keeps one unit per image pixel, as in Half-Life. You pick the image in Options, Spray."
     },
     {
       "name": "rc_crosshair",
@@ -433,7 +433,7 @@
       "default": "1",
       "group": "Other",
       "label_en": "Discord status",
-      "desc_en": "While Discord is open, your profile shows that you are playing ReCoF: the map, the version, whether you are playing or in the menu, your FPS and the difficulty."
+      "desc_en": "While Discord is open, your profile shows that you're playing ReCoF: the map, the version, whether you're playing or in the menu, your FPS and the difficulty."
     },
     {
       "name": "rc_omgbruh_sound",
@@ -441,7 +441,7 @@
       "default": "0",
       "group": "Other",
       "label_en": "Same pitch on every shot",
-      "desc_en": "Plays your weapon sounds at their recorded pitch. The original game changes the pitch a little at every shot, which makes replacement gun sounds (for example the ones of Cry of Fear 1.5) sound wrong."
+      "desc_en": "Plays your weapon sounds at their recorded pitch. The original game changes the pitch a little on every shot, which makes replacement gun sounds (like the ones from Cry of Fear 1.5) sound wrong."
     },
     {
       "name": "rc_vignette",
@@ -449,7 +449,7 @@
       "default": "0",
       "group": "Other",
       "label_en": "Vignette",
-      "desc_en": "Darkens the corners of the screen, as Cry of Fear 1.0 to 1.55 did, scaled to your resolution. The Vignette option of the original game (cl_vignette) never did anything."
+      "desc_en": "Darkens the corners of the screen, as Cry of Fear 1.0 to 1.55 did, scaled to your resolution. The original game's Vignette option (cl_vignette) never did anything."
     }
   ]
 }

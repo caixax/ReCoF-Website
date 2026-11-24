@@ -4,14 +4,14 @@ nav: Credits and license
 description: Who made the game ReCoF is built on, the projects it learned from, and the terms of its code.
 ---
 
-ReCoF is made by caixax, on [DeCoF](https://github.com/caixax/DeCoF), the decompilation of Cry of Fear by the same author.
+ReCoF is made by caixax and built on [DeCoF](https://github.com/caixax/DeCoF), the decompilation of Cry of Fear by the same author.
 
 ## Credits
 
 - **Team Psykskallar** made Cry of Fear. ReCoF fixes and extends their game and ships none of its assets.
 - **Valve** made the GoldSrc engine and the Half-Life SDK that Cry of Fear is built on.
 - **BUzer** wrote the Paranoia renderer that Cry of Fear's client and OpenGL wrapper come from.
-- **cd_n0** made RebuiltSimon. ReCoF's information panel, HUD numbers, ducktap and autojump aids and other speedrun options are rebuilt from what it shows and does; none of its code is used.
+- **cd_n0** made RebuiltSimon. ReCoF's information panel, HUD numbers, ducktap and autojump aids and other speedrun options are rebuilt from what it shows and does, but none of its code is used.
 - **YaLTeR** made BunnymodXT, whose practice commands, crosshair, timer and ideas ReCoF follows, and the fork of discord-rpc that ReCoF's Discord status uses.
 - **IlyaTsyganov** wrote the Cry of Fear LiveSplit script, whose timing rules ReCoF's run timer follows.
 - **The ReHLDS team** made ReHLDS, which ReCoF Server is a fork of, and **Metamod-R**; **the AMX Mod X team** made AMX Mod X.
@@ -40,4 +40,4 @@ ReCoF's [LICENSE](https://github.com/caixax/ReCoF/blob/main/LICENSE) keeps DeCoF
 
 If you use ReCoF or DeCoF in your own project, a fork or a mod, please credit them: name ReCoF and DeCoF by caixax and link to [the repository](https://github.com/caixax/ReCoF) in your README or credits.
 
-ReCoF is not affiliated with or endorsed by Team Psykskallar or Valve. No game assets or original binaries are distributed; you need your own copy of Cry of Fear.
+ReCoF isn't affiliated with or endorsed by Team Psykskallar or Valve. No game assets or original binaries are distributed, so you'll need your own copy of Cry of Fear.

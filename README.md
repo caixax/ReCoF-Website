@@ -27,7 +27,7 @@ A build fails on a broken link: every link inside the site must reach a page, a 
 | `content/index.html` | the home page, written in HTML |
 | `site.config.mjs` | the site's name, the header links and the documentation sidebar, in reading order |
 | `assets/` | `style.css` and `site.js`, linked with a hash of their content so caches never keep an old one |
-| `public/` | files copied as they are: the favicon and app icons, `img/` (the logo and the header icon), `og.png` (the picture link previews show), `robots.txt` |
+| `public/` | files copied as they are: the favicon and app icons, `img/` (the logo, the header icon and, in `img/screens/`, the home page's screenshots and clip, named as `content/index.html` lists them), `og.png` (the image link previews show), `robots.txt` |
 | `data/recof-cvars.json` | ReCoF's option list, which the [Options](content/docs/options.md) page is built from |
 | `scripts/` | the build, the preview server, the checks and `update.sh` for the server |
 | `deploy/` | the nginx config and an example Cloudflare Tunnel config |
